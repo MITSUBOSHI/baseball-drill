@@ -8,7 +8,6 @@ import {
   CATEGORIES,
   LEVEL_LABELS,
   POSITION_LABELS,
-  type Category,
   type Drill,
   type Level,
   type FieldingPosition,
