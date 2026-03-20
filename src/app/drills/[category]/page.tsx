@@ -12,6 +12,7 @@ import {
   type Level,
   type FieldingPosition,
 } from "@/types/drill";
+import { FuriganaText } from "@/components/FuriganaText";
 
 const drills = drillsData as Drill[];
 
@@ -71,7 +72,9 @@ export default function CategoryPage({
           トップ
         </Link>
         <span className="mx-2">&gt;</span>
-        <span className="text-foreground font-medium">{categoryInfo.name}</span>
+        <span className="text-foreground font-medium">
+          <FuriganaText text={categoryInfo.name} />
+        </span>
       </nav>
 
       <div className="mb-8">
@@ -79,10 +82,12 @@ export default function CategoryPage({
           <div
             className={`w-1.5 h-8 rounded-full ${CATEGORY_COLORS[category]}`}
           />
-          <h1 className="text-3xl font-bold">{categoryInfo.name}の練習ドリル</h1>
+          <h1 className="text-3xl font-bold">
+            <FuriganaText text={`${categoryInfo.name}の練習ドリル`} />
+          </h1>
         </div>
         <p className="text-gray-600 dark:text-gray-400">
-          {categoryInfo.description}
+          <FuriganaText text={categoryInfo.description} />
         </p>
       </div>
 
@@ -100,7 +105,9 @@ export default function CategoryPage({
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
                 }`}
               >
-                {level === "all" ? "全て" : LEVEL_LABELS[level]}
+                <FuriganaText
+                  text={level === "all" ? "全て" : LEVEL_LABELS[level]}
+                />
               </button>
             )
           )}
@@ -122,7 +129,9 @@ export default function CategoryPage({
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
                   }`}
                 >
-                  {pos === "all" ? "全て" : POSITION_LABELS[pos]}
+                  <FuriganaText
+                    text={pos === "all" ? "全て" : POSITION_LABELS[pos]}
+                  />
                 </button>
               )
             )}
@@ -132,7 +141,7 @@ export default function CategoryPage({
 
       {filteredDrills.length === 0 ? (
         <p className="text-center text-gray-500 py-12">
-          該当するドリルがありません
+          <FuriganaText text="該当するドリルがありません" />
         </p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -146,19 +155,19 @@ export default function CategoryPage({
                 <span
                   className={`px-2 py-0.5 rounded text-xs font-medium ${LEVEL_BADGE_STYLES[drill.level]}`}
                 >
-                  {LEVEL_LABELS[drill.level]}
+                  <FuriganaText text={LEVEL_LABELS[drill.level]} />
                 </span>
                 {drill.position && (
                   <span className="px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
-                    {POSITION_LABELS[drill.position]}
+                    <FuriganaText text={POSITION_LABELS[drill.position]} />
                   </span>
                 )}
               </div>
               <h3 className="font-semibold mb-2 group-hover:text-orange-500 transition-colors">
-                {drill.title}
+                <FuriganaText text={drill.title} />
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
-                {drill.description}
+                <FuriganaText text={drill.description} />
               </p>
               <div className="flex gap-4 text-xs text-gray-500 dark:text-gray-500">
                 <span>&#128336; {drill.duration}</span>

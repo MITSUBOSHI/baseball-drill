@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { CATEGORIES } from "@/types/drill";
+import { FuriganaText } from "@/components/FuriganaText";
 
 const CATEGORY_COLORS: Record<string, string> = {
   basics: "bg-blue-500",
@@ -36,17 +39,17 @@ export default function Home() {
       <section className="bg-slate-900 text-white py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-            すべてのプレーに、確かな技術を。
+            <FuriganaText text="すべてのプレーに、確かな技術を。" />
           </h1>
           <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
-            基本から応用まで、動画で学べる野球練習ドリル集
+            <FuriganaText text="基本から応用まで、動画で学べる野球練習ドリル集" />
           </p>
         </div>
       </section>
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl font-bold mb-8 text-center">
-          カテゴリから探す
+          <FuriganaText text="カテゴリから探す" />
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {CATEGORIES.map((cat) => (
@@ -65,11 +68,11 @@ export default function Home() {
                     }}
                   />
                   <h3 className="text-lg font-semibold group-hover:text-orange-500 transition-colors">
-                    {cat.name}
+                    <FuriganaText text={cat.name} />
                   </h3>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {CATEGORY_DESCRIPTIONS[cat.id]}
+                  <FuriganaText text={CATEGORY_DESCRIPTIONS[cat.id]} />
                 </p>
               </div>
             </Link>
