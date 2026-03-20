@@ -1,4 +1,4 @@
-export type Category = "basics" | "strategy" | "pitching" | "batting" | "fielding";
+export type Category = "basics" | "strategy" | "pitching" | "batting" | "fielding" | "training";
 
 export type Level = "beginner" | "intermediate" | "advanced";
 
@@ -59,6 +59,12 @@ export const CATEGORIES: CategoryInfo[] = [
     name: "守備",
     description: "ポジション別の守備練習、連携プレー、送球練習",
     icon: "shield",
+  },
+  {
+    id: "training",
+    name: "筋トレ",
+    description: "野球に必要な筋力・体幹・瞬発力を鍛えるトレーニング",
+    icon: "dumbbell",
   },
 ];
 

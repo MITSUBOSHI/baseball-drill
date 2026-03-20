@@ -16,5 +16,5 @@ export function getDrillById(id: string): Drill | undefined {
 }
 
 export function getCategories(): Category[] {
-  return ["basics", "strategy", "pitching", "batting", "fielding"];
+  return ["basics", "strategy", "pitching", "batting", "fielding", "training"];
 }

@@ -22,6 +22,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   pitching: "bg-red-500",
   batting: "bg-orange-500",
   fielding: "bg-green-500",
+  training: "bg-amber-500",
 };
 
 const LEVEL_BADGE_STYLES: Record<Level, string> = {
