@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FuriganaText } from "./FuriganaText";
+import { FavoriteButton } from "./FavoriteButton";
 import type { Drill, Level } from "@/types/drill";
 
 const LEVEL_BADGE_STYLES: Record<Level, string> = {
@@ -66,9 +67,12 @@ export function DrillDetail({
             </span>
           )}
         </div>
-        <h1 className="text-3xl font-bold mb-3">
-          <FuriganaText text={drill.title} />
-        </h1>
+        <div className="flex items-center gap-2 mb-3">
+          <h1 className="text-3xl font-bold">
+            <FuriganaText text={drill.title} />
+          </h1>
+          <FavoriteButton drillId={drill.id} />
+        </div>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           <FuriganaText text={drill.description} />
         </p>
@@ -89,6 +93,7 @@ export function DrillDetail({
           title={drill.title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          loading="lazy"
         />
       </div>
 
