@@ -1,4 +1,4 @@
-export type Category = "basics" | "strategy" | "pitching" | "batting" | "fielding" | "training";
+export type Category = "basics" | "strategy" | "pitching" | "batting" | "fielding" | "running" | "training";
 
 export type Level = "beginner" | "intermediate" | "advanced";
 
@@ -8,12 +8,40 @@ export type FieldingPosition =
   | "outfield"
   | "all";
 
+export type PitchingType =
+  | "form"
+  | "control"
+  | "breaking"
+  | "all";
+
+export type BattingType =
+  | "swing"
+  | "tee"
+  | "live"
+  | "all";
+
+export const PITCHING_TYPE_LABELS: Record<PitchingType, string> = {
+  form: "フォーム",
+  control: "コントロール",
+  breaking: "変化球",
+  all: "全タイプ",
+};
+
+export const BATTING_TYPE_LABELS: Record<BattingType, string> = {
+  swing: "スイング",
+  tee: "ティー",
+  live: "実打",
+  all: "全タイプ",
+};
+
 export interface Drill {
   id: string;
   title: string;
   category: Category;
   level: Level;
   position?: FieldingPosition;
+  pitchingType?: PitchingType;
+  battingType?: BattingType;
   description: string;
   steps: string[];
   points: string[];
@@ -59,6 +87,12 @@ export const CATEGORIES: CategoryInfo[] = [
     name: "守備",
     description: "ポジション別の守備練習、連携プレー、送球練習",
     icon: "shield",
+  },
+  {
+    id: "running",
+    name: "走塁",
+    description: "ベースランニング、盗塁、走塁判断など走塁技術の練習",
+    icon: "runner",
   },
   {
     id: "training",

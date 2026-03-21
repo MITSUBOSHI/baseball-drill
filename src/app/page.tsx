@@ -10,6 +10,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   pitching: "bg-red-500",
   batting: "bg-orange-500",
   fielding: "bg-green-500",
+  running: "bg-teal-500",
   training: "bg-amber-500",
 };
 
@@ -24,6 +25,8 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
     "素振り、ティーバッティング、実打練習まで、確実にミートするための技術を体に覚えさせます。",
   fielding:
     "内野・外野・捕手のポジション別に、守備の基本から連携プレーまでカバーします。",
+  running:
+    "ベースランニング、盗塁、スライディング、走塁判断など、走塁技術を総合的に磨きます。",
   training:
     "体幹・下半身・回旋力・瞬発力など、野球のパフォーマンスに直結する筋力トレーニングメニューです。",
 };
@@ -34,6 +37,7 @@ const CATEGORY_ICONS: Record<string, string> = {
   pitching: "&#128293;",
   batting: "&#9889;",
   fielding: "&#128737;",
+  running: "&#127939;",
   training: "&#128170;",
 };
 

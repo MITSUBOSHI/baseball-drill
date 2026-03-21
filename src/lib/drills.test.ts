@@ -34,13 +34,14 @@ describe("getDrillById", () => {
 });
 
 describe("getCategories", () => {
-  it("returns all 6 categories", () => {
+  it("returns all 7 categories", () => {
     const categories = getCategories();
-    expect(categories).toHaveLength(6);
+    expect(categories).toHaveLength(7);
     expect(categories).toContain("basics");
     expect(categories).toContain("pitching");
     expect(categories).toContain("batting");
     expect(categories).toContain("fielding");
+    expect(categories).toContain("running");
     expect(categories).toContain("strategy");
     expect(categories).toContain("training");
   });

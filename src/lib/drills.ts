@@ -16,5 +16,16 @@ export function getDrillById(id: string): Drill | undefined {
 }
 
 export function getCategories(): Category[] {
-  return ["basics", "strategy", "pitching", "batting", "fielding", "training"];
+  return ["basics", "strategy", "pitching", "batting", "fielding", "running", "training"];
+}
+
+export function searchDrills(query: string): Drill[] {
+  if (!query.trim()) return [];
+  const terms = query.toLowerCase().split(/\s+/);
+  return drills.filter((d) => {
+    const text = [d.title, d.description, ...d.steps, ...d.points]
+      .join(" ")
+      .toLowerCase();
+    return terms.every((term) => text.includes(term));
+  });
 }

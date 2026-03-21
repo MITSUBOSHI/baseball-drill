@@ -8,9 +8,13 @@ import {
   CATEGORIES,
   LEVEL_LABELS,
   POSITION_LABELS,
+  PITCHING_TYPE_LABELS,
+  BATTING_TYPE_LABELS,
   type Drill,
   type Level,
   type FieldingPosition,
+  type PitchingType,
+  type BattingType,
 } from "@/types/drill";
 import { FuriganaText } from "@/components/FuriganaText";
 
@@ -22,6 +26,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   pitching: "bg-red-500",
   batting: "bg-orange-500",
   fielding: "bg-green-500",
+  running: "bg-teal-500",
   training: "bg-amber-500",
 };
 
@@ -43,6 +48,12 @@ export default function CategoryPage({
   const [positionFilter, setPositionFilter] = useState<
     FieldingPosition | "all"
   >("all");
+  const [pitchingTypeFilter, setPitchingTypeFilter] = useState<
+    PitchingType | "all"
+  >("all");
+  const [battingTypeFilter, setBattingTypeFilter] = useState<
+    BattingType | "all"
+  >("all");
 
   const categoryInfo = CATEGORIES.find((c) => c.id === category);
   if (!categoryInfo) {
@@ -61,6 +72,18 @@ export default function CategoryPage({
       category === "fielding" &&
       positionFilter !== "all" &&
       d.position !== positionFilter
+    )
+      return false;
+    if (
+      category === "pitching" &&
+      pitchingTypeFilter !== "all" &&
+      d.pitchingType !== pitchingTypeFilter
+    )
+      return false;
+    if (
+      category === "batting" &&
+      battingTypeFilter !== "all" &&
+      d.battingType !== battingTypeFilter
     )
       return false;
     return true;
@@ -113,6 +136,52 @@ export default function CategoryPage({
             )
           )}
         </div>
+
+        {category === "pitching" && (
+          <div className="flex gap-2 items-center">
+            <span className="text-sm font-medium text-gray-500">タイプ:</span>
+            {(["all", "form", "control", "breaking"] as const).map(
+              (pt) => (
+                <button
+                  key={pt}
+                  onClick={() => setPitchingTypeFilter(pt)}
+                  className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                    pitchingTypeFilter === pt
+                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  <FuriganaText
+                    text={pt === "all" ? "全て" : PITCHING_TYPE_LABELS[pt]}
+                  />
+                </button>
+              )
+            )}
+          </div>
+        )}
+
+        {category === "batting" && (
+          <div className="flex gap-2 items-center">
+            <span className="text-sm font-medium text-gray-500">タイプ:</span>
+            {(["all", "swing", "tee", "live"] as const).map(
+              (bt) => (
+                <button
+                  key={bt}
+                  onClick={() => setBattingTypeFilter(bt)}
+                  className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                    battingTypeFilter === bt
+                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  <FuriganaText
+                    text={bt === "all" ? "全て" : BATTING_TYPE_LABELS[bt]}
+                  />
+                </button>
+              )
+            )}
+          </div>
+        )}
 
         {category === "fielding" && (
           <div className="flex gap-2 items-center">
