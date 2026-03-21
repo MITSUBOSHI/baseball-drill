@@ -1,0 +1,21 @@
+{
+  "name": "野球道場 | 動画で学べる野球練習ドリル集",
+  "short_name": "野球道場",
+  "description": "基本練習から投球・打撃・守備・走塁・戦略まで、カテゴリ別の練習ドリルを動画付きで紹介。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
