@@ -6,7 +6,6 @@ import {
   useState,
   useCallback,
   useEffect,
-  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
@@ -20,11 +19,6 @@ const ThemeContext = createContext<{
   cycleTheme: () => {},
 });
 
-function getStoredTheme(): Theme {
-  if (typeof window === "undefined") return "system";
-  return (localStorage.getItem("theme") as Theme) || "system";
-}
-
 function applyTheme(theme: Theme) {
   const isDark =
     theme === "dark" ||
@@ -33,15 +27,13 @@ function applyTheme(theme: Theme) {
   document.documentElement.classList.toggle("dark", isDark);
 }
 
-const subscribe = () => () => {};
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const initialValue = useSyncExternalStore(
-    subscribe,
-    getStoredTheme,
-    () => "system" as Theme
-  );
-  const [theme, setTheme] = useState<Theme>(initialValue);
+  const [theme, setTheme] = useState<Theme>("system");
+
+  useEffect(() => {
+    const stored = (localStorage.getItem("theme") as Theme) || "system";
+    setTheme(stored);
+  }, []);
 
   useEffect(() => {
     applyTheme(theme);

@@ -5,7 +5,7 @@ import {
   useContext,
   useState,
   useCallback,
-  useSyncExternalStore,
+  useEffect,
   type ReactNode,
 } from "react";
 
@@ -17,20 +17,12 @@ const FuriganaContext = createContext<{
   toggleFurigana: () => {},
 });
 
-function getStoredFurigana() {
-  if (typeof window === "undefined") return false;
-  return localStorage.getItem("furigana") === "true";
-}
-
-const subscribe = () => () => {};
-
 export function FuriganaProvider({ children }: { children: ReactNode }) {
-  const initialValue = useSyncExternalStore(
-    subscribe,
-    getStoredFurigana,
-    () => false
-  );
-  const [furigana, setFurigana] = useState(initialValue);
+  const [furigana, setFurigana] = useState(false);
+
+  useEffect(() => {
+    setFurigana(localStorage.getItem("furigana") === "true");
+  }, []);
 
   const toggleFurigana = useCallback(() => {
     setFurigana((prev) => {

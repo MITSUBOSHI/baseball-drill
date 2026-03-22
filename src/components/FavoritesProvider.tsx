@@ -5,7 +5,7 @@ import {
   useContext,
   useState,
   useCallback,
-  useSyncExternalStore,
+  useEffect,
   type ReactNode,
 } from "react";
 
@@ -19,24 +19,17 @@ const FavoritesContext = createContext<{
   isFavorite: () => false,
 });
 
-function getStoredFavorites(): string[] {
-  if (typeof window === "undefined") return [];
-  try {
-    return JSON.parse(localStorage.getItem("favorites") || "[]");
-  } catch {
-    return [];
-  }
-}
-
-const subscribe = () => () => {};
-
 export function FavoritesProvider({ children }: { children: ReactNode }) {
-  const initialValue = useSyncExternalStore(
-    subscribe,
-    getStoredFavorites,
-    () => [] as string[]
-  );
-  const [favorites, setFavorites] = useState<string[]>(initialValue);
+  const [favorites, setFavorites] = useState<string[]>([]);
+
+  useEffect(() => {
+    try {
+      const stored = JSON.parse(localStorage.getItem("favorites") || "[]");
+      setFavorites(stored);
+    } catch {
+      // ignore
+    }
+  }, []);
 
   const toggleFavorite = useCallback((id: string) => {
     setFavorites((prev) => {
