@@ -87,6 +87,48 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 className="text-2xl font-bold mb-8 text-center">
+          <FuriganaText text="ルールを学ぶ" />
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <Link
+            href="/rules/mlb"
+            className="group block rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+          >
+            <div className="h-1.5 bg-indigo-500" />
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">&#9918;</span>
+                <h3 className="text-lg font-semibold group-hover:text-indigo-500 transition-colors">
+                  <FuriganaText text="MLBルールクイズ" />
+                </h3>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                <FuriganaText text="MLB公式野球規則（2025年版）を4択クイズで学ぼう。原文と日本語訳つき。" />
+              </p>
+            </div>
+          </Link>
+          <div className="relative block rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm overflow-hidden opacity-60">
+            <div className="h-1.5 bg-rose-500" />
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">&#127471;&#127477;</span>
+                <h3 className="text-lg font-semibold">
+                  <FuriganaText text="NPBルールクイズ" />
+                </h3>
+                <span className="text-xs px-2 py-0.5 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full">
+                  準備中
+                </span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                <FuriganaText text="日本プロ野球の公認野球規則に基づくクイズ（近日公開予定）" />
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

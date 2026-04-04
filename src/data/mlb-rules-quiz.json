@@ -1,0 +1,413 @@
+[
+  {
+    "id": "mlb-001",
+    "ruleSection": "1.00",
+    "ruleNumber": "1.01",
+    "difficulty": "easy",
+    "question": "MLBの公式ルールによると、野球は1チーム何人の選手で行われますか？",
+    "choices": ["8人", "9人", "10人", "11人"],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 1.01: Baseball is a game between two teams of nine players each, under direction of a manager, played on an enclosed field in accordance with these rules, under jurisdiction of one or more umpires.",
+    "japaneseTranslation": "規則1.01：野球は、囲いのある競技場において、この規則に基づき、1名以上の審判員の権限のもとに、各チーム9名の選手からなる2チームの間で、監督の指揮のもとに行われる競技である。"
+  },
+  {
+    "id": "mlb-002",
+    "ruleSection": "1.00",
+    "ruleNumber": "1.05",
+    "difficulty": "easy",
+    "question": "試合に勝つための条件は何ですか？",
+    "choices": [
+      "相手チームより多くのランを記録する",
+      "9イニング以内に相手を無得点に抑える",
+      "相手チームの全打者を三振にする",
+      "ヒットを多く打つ"
+    ],
+    "correctIndex": 0,
+    "originalRuleText": "Rule 1.05: The objective of each team is to win by scoring more runs than the opponent.",
+    "japaneseTranslation": "規則1.05：各チームの目的は、相手チームより多くの得点を記録して勝つことである。"
+  },
+  {
+    "id": "mlb-003",
+    "ruleSection": "2.00",
+    "ruleNumber": "2.01",
+    "difficulty": "easy",
+    "question": "内野の塁間の距離はどれですか？",
+    "choices": ["80フィート", "85フィート", "90フィート", "95フィート"],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 2.01: The infield shall be a 90-foot square.",
+    "japaneseTranslation": "規則2.01：内野は一辺90フィート（約27.431メートル）の正方形とする。"
+  },
+  {
+    "id": "mlb-004",
+    "ruleSection": "2.00",
+    "ruleNumber": "2.04",
+    "difficulty": "normal",
+    "question": "投手板（ピッチャーズプレート）からホームベースまでの距離はどれですか？",
+    "choices": ["55フィート6インチ", "58フィート", "60フィート6インチ", "62フィート"],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 2.04: The pitcher's plate shall be a rectangular slab of whitened rubber, 24 inches by 6 inches. It shall be set in the ground so that the distance between the pitcher's plate and home base (the rear point of home plate) shall be 60 feet, 6 inches.",
+    "japaneseTranslation": "規則2.04：投手板は24インチ×6インチの白いゴム製の長方形の板とする。投手板からホームベース（ホームプレートの後方の頂点）までの距離は60フィート6インチ（約18.44メートル）とする。"
+  },
+  {
+    "id": "mlb-005",
+    "ruleSection": "2.00",
+    "ruleNumber": "2.02",
+    "difficulty": "hard",
+    "question": "ホームベースの形状として正しいのはどれですか？",
+    "choices": [
+      "17インチの正方形",
+      "2つの角を切り取った五角形",
+      "直径17インチの円形",
+      "18インチの正方形"
+    ],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 2.02: Home base shall be marked by a five-sided slab of whitened rubber. It shall be a 17-inch square with two of the corners removed so that one edge is 17 inches long, two adjacent sides are 8½ inches and the remaining two sides are 12 inches and set at an angle to make a point.",
+    "japaneseTranslation": "規則2.02：ホームベースは白いゴム製の五角形の板で示す。17インチの正方形の2つの角を切り取ったもので、1辺が17インチ、隣接する2辺が8½インチ、残りの2辺が12インチで、先端が尖った形状である。"
+  },
+  {
+    "id": "mlb-006",
+    "ruleSection": "3.00",
+    "ruleNumber": "3.01",
+    "difficulty": "normal",
+    "question": "公式球の重さの規定はどれですか？",
+    "choices": [
+      "4オンス以上4½オンス以下",
+      "5オンス以上5¼オンス以下",
+      "5½オンス以上6オンス以下",
+      "6オンス以上6½オンス以下"
+    ],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 3.01: The ball shall be a sphere formed by yarn wound around a small core of cork, rubber or similar material, covered with two strips of white horsehide or cowhide, tightly stitched together. It shall weigh not less than five nor more than 5¼ ounces avoirdupois and measure not less than nine nor more than 9¼ inches in circumference.",
+    "japaneseTranslation": "規則3.01：ボールはコルク、ゴム、またはそれに類する素材の小さな芯に糸を巻きつけた球体で、白い馬革または牛革の2片をしっかり縫い合わせたものとする。重さは5オンス（約141.7g）以上5¼オンス（約148.8g）以下、周囲は9インチ（約22.9cm）以上9¼インチ（約23.5cm）以下とする。"
+  },
+  {
+    "id": "mlb-007",
+    "ruleSection": "3.00",
+    "ruleNumber": "3.02(a)",
+    "difficulty": "normal",
+    "question": "バットの最大の長さの規定はどれですか？",
+    "choices": ["36インチ", "38インチ", "42インチ", "44インチ"],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 3.02(a): The bat shall be a smooth, round stick not more than 2.61 inches in diameter at the thickest part and not more than 42 inches in length. The bat shall be one piece of solid wood.",
+    "japaneseTranslation": "規則3.02(a)：バットは滑らかな丸い棒で、最も太い部分の直径が2.61インチ（約6.6cm）以下、長さが42インチ（約106.7cm）以下とする。バットは1本の無垢の木材で作られたものとする。"
+  },
+  {
+    "id": "mlb-008",
+    "ruleSection": "3.00",
+    "ruleNumber": "3.02(c)",
+    "difficulty": "hard",
+    "question": "バットのグリップに素材を巻く場合、端からの許容範囲はどれですか？（パインタールール）",
+    "choices": ["12インチ", "15インチ", "18インチ", "24インチ"],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 3.02(c): The bat handle, for not more than 18 inches from its end, may be covered or treated with any material or substance to improve the grip. Any such material or substance that extends past the 18-inch limitation shall cause the bat to be removed from the game.",
+    "japaneseTranslation": "規則3.02(c)：バットのグリップは、端から18インチ（約45.7cm）以内であれば、握りを良くするためのいかなる素材や物質で覆ったり処理したりしてもよい。18インチの制限を超えて素材が付着している場合、そのバットは試合から除去される。",
+    "explanation": "1983年のジョージ・ブレットの「パインタール事件」で有名になったルール。ブレットのホームランが一度取り消された後、リーグ裁定で復活した。"
+  },
+  {
+    "id": "mlb-009",
+    "ruleSection": "4.00",
+    "ruleNumber": "4.03(c)",
+    "difficulty": "normal",
+    "question": "2025年のMLBルールでは、試合当日のラインナップカードに指定できるピッチャーの最大人数は何人ですか？（開幕日〜8月31日）",
+    "choices": ["11人", "12人", "13人", "14人"],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 4.03(c)(1): From Opening Day through August 31 of the championship season and during postseason games, Major League Clubs may designate a maximum of 13 pitchers for a game.",
+    "japaneseTranslation": "規則4.03(c)(1)：開幕日から8月31日までのレギュラーシーズンおよびポストシーズンにおいて、メジャーリーグの各クラブは1試合につき最大13人の投手を指定できる。"
+  },
+  {
+    "id": "mlb-010",
+    "ruleSection": "4.00",
+    "ruleNumber": "4.03(c)",
+    "difficulty": "hard",
+    "question": "9月1日以降のレギュラーシーズンでは、ラインナップカードに指定できるピッチャーの最大人数はいくつに増えますか？",
+    "choices": ["13人", "14人", "15人", "16人"],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 4.03(c)(2): From September 1 through the end of the championship season (including any tiebreaker games), Major League Clubs may designate a maximum of 14 pitchers for a game.",
+    "japaneseTranslation": "規則4.03(c)(2)：9月1日からレギュラーシーズン終了まで（タイブレーカーゲームを含む）、メジャーリーグの各クラブは1試合につき最大14人の投手を指定できる。"
+  },
+  {
+    "id": "mlb-011",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.02(c)",
+    "difficulty": "normal",
+    "question": "2025年のMLBシフト制限ルールでは、投手がボールをリリースする時点で、二塁ベースの両側にそれぞれ最低何人の内野手が必要ですか？",
+    "choices": ["1人", "2人", "3人", "制限なし"],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 5.02(c)(ii): At the time the pitcher releases the ball for delivery to the batter, the defensive team must have a minimum of four players (in addition to the pitcher and the catcher) with both feet completely in front of the outer boundary of the infield dirt, at least two of which must be positioned with both feet entirely on each side of second base.",
+    "japaneseTranslation": "規則5.02(c)(ii)：投手がバッターへの投球のためにボールをリリースする時点で、守備チームは投手と捕手を除き、最低4人の野手が内野ダートの外側境界線より前に両足を置いていなければならず、そのうち少なくとも2人ずつが二塁の両側に位置していなければならない。",
+    "explanation": "2023年から導入されたシフト制限ルール。極端な守備シフトを禁止する目的で設けられた。"
+  },
+  {
+    "id": "mlb-012",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.05(a)(2)",
+    "difficulty": "normal",
+    "question": "振り逃げ（第3ストライクが捕球されなかった場合）が成立する条件として正しいのはどれですか？",
+    "choices": [
+      "いつでも振り逃げできる",
+      "一塁が空いているか、2アウトの場合",
+      "2アウトの場合のみ",
+      "ランナーがいない場合のみ"
+    ],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 5.05(a)(2): The batter becomes a runner when the third strike called by the umpire is not caught, providing (1) first base is unoccupied, or (2) first base is occupied with two out.",
+    "japaneseTranslation": "規則5.05(a)(2)：審判が宣告した第3ストライクが捕球されなかった場合、(1)一塁が空いているとき、または(2)2アウトで一塁が塁についているとき、打者は走者となる。",
+    "explanation": "いわゆる「振り逃げ」のルール。0または1アウトで一塁にランナーがいる場合は、ダブルプレーの不公平を防ぐため適用されない。"
+  },
+  {
+    "id": "mlb-013",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.05(b)(2)",
+    "difficulty": "easy",
+    "question": "デッドボール（死球）で打者が一塁に進む条件として正しいのはどれですか？",
+    "choices": [
+      "投球がストライクゾーン内でも死球になる",
+      "打者が避けようとしなくても死球になる",
+      "ストライクゾーン外の投球に当たり、打者が避けようとした場合に死球になる",
+      "投球が打者の頭に当たった場合のみ死球になる"
+    ],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 5.05(b)(2): He is touched by a pitched ball which he is not attempting to hit unless (A) The ball is in the strike zone when it touches the batter, or (B) The batter makes no attempt to avoid being touched by the ball.",
+    "japaneseTranslation": "規則5.05(b)(2)：打とうとしていない投球が打者に当たった場合、以下の場合を除き一塁が与えられる：(A)投球がストライクゾーン内で打者に当たった場合、(B)打者がボールを避けようとしなかった場合。"
+  },
+  {
+    "id": "mlb-014",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.07(a)",
+    "difficulty": "easy",
+    "question": "合法的な投球姿勢（ピッチングポジション）は何種類ありますか？",
+    "choices": ["1種類", "2種類", "3種類", "4種類"],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 5.07(a): There are two legal pitching positions, the Windup Position and the Set Position, and either position may be used at any time.",
+    "japaneseTranslation": "規則5.07(a)：合法的な投球姿勢にはワインドアップポジションとセットポジションの2種類があり、いずれの姿勢もいつでも使用できる。"
+  },
+  {
+    "id": "mlb-015",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.07(c)",
+    "difficulty": "normal",
+    "question": "走者がいない場合、投手はボールを受け取ってから何秒以内に投球しなければなりませんか？",
+    "choices": ["10秒", "12秒", "15秒", "20秒"],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 5.07(c): When the bases are unoccupied, the pitcher shall deliver the ball to the batter within 12 seconds after he receives the ball. Each time the pitcher delays the game by violating this rule, the umpire shall call \"Ball.\"",
+    "japaneseTranslation": "規則5.07(c)：走者がいない場合、投手はボールを受け取ってから12秒以内に打者に投球しなければならない。投手がこのルールに違反して試合を遅延させるたびに、審判は「ボール」を宣告する。",
+    "explanation": "ピッチクロックのルール。2023年シーズンから本格導入され、試合時間の短縮に大きく貢献した。"
+  },
+  {
+    "id": "mlb-016",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.09(a)(5)",
+    "difficulty": "normal",
+    "question": "インフィールドフライが宣告されるとどうなりますか？",
+    "choices": [
+      "ボールデッドとなり、走者は戻る",
+      "打者がアウトになる",
+      "打者と走者の両方がアウトになる",
+      "走者はフォースアウトを免れる"
+    ],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 5.09(a)(5): A batter is out when an Infield Fly is declared.",
+    "japaneseTranslation": "規則5.09(a)(5)：インフィールドフライが宣告された場合、打者はアウトとなる。",
+    "explanation": "インフィールドフライは、0または1アウトで一塁・二塁（または満塁）の状況で内野手が普通に捕球できる飛球に適用される。走者のフォースアウトを防ぐためのルール。"
+  },
+  {
+    "id": "mlb-017",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.08(a)",
+    "difficulty": "easy",
+    "question": "得点が認められるためには、走者はどのような順序で塁を踏む必要がありますか？",
+    "choices": [
+      "一塁、二塁、三塁、本塁の順に",
+      "どの順番でもよい",
+      "本塁から最も近い塁を先に",
+      "任意の2つの塁を踏めばよい"
+    ],
+    "correctIndex": 0,
+    "originalRuleText": "Rule 5.08(a): One run shall be scored each time a runner legally advances to and touches first, second, third and home base before three men are put out to end the inning.",
+    "japaneseTranslation": "規則5.08(a)：走者が一塁、二塁、三塁、本塁を正規に進み、3アウトでイニングが終了する前にすべての塁に触れるたびに、1点が記録される。"
+  },
+  {
+    "id": "mlb-018",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.11(a)",
+    "difficulty": "easy",
+    "question": "指名打者（DH）は誰の代わりに打席に立ちますか？",
+    "choices": ["捕手", "投手", "一塁手", "監督が指定した任意の野手"],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 5.11(a): A hitter may be designated to bat for the starting pitcher and all subsequent pitchers in any game without otherwise affecting the status of the pitcher(s) in the game.",
+    "japaneseTranslation": "規則5.11(a)：先発投手およびその後のすべての投手に代わって打席に立つ打者を指名することができ、これにより試合における投手の地位に影響はない。"
+  },
+  {
+    "id": "mlb-019",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.09(b)(1)",
+    "difficulty": "normal",
+    "question": "走者がタッグを避けるために走路（ベースパス）から外れて走った場合、どれだけ離れるとアウトになりますか？",
+    "choices": ["2フィート以上", "3フィート以上", "5フィート以上", "制限なし"],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 5.09(b)(1): He runs more than three feet away from his base path to avoid being tagged unless his action is to avoid interference with a fielder fielding a batted ball.",
+    "japaneseTranslation": "規則5.09(b)(1)：走者がタッグを避けるために走路から3フィート（約0.91メートル）以上離れて走った場合、アウトとなる。ただし、打球を処理している野手との接触を避けるための行動は除く。"
+  },
+  {
+    "id": "mlb-020",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.10(g)(1)",
+    "difficulty": "normal",
+    "question": "2025年のMLBルールでは、リリーフ投手は最低何人の打者に対して投球しなければなりませんか？",
+    "choices": ["1人", "2人", "3人", "制限なし"],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 5.10(g)(1): The starting pitcher or any substitute pitcher is required to pitch to a minimum of three consecutive batters, including the batter then at bat (or any substitute batter), until such batters are put out or reach first base, or until the offensive team is put out.",
+    "japaneseTranslation": "規則5.10(g)(1)：先発投手または交代投手は、その時点の打者（または代打）を含む最低3人の連続した打者に対して、打者がアウトまたは出塁するまで投球しなければならない。ただし、攻撃チームがアウトになった場合はこの限りではない。",
+    "explanation": "「3バッタールール」として知られる。2020年から導入され、過度なワンポイントリリーフの起用を制限するためのルール。"
+  },
+  {
+    "id": "mlb-021",
+    "ruleSection": "6.00",
+    "ruleNumber": "6.02(c)(2)",
+    "difficulty": "hard",
+    "question": "投手が意図的にボールを汚損した場合のペナルティとして正しいのはどれですか？",
+    "choices": [
+      "警告のみ",
+      "自動的にボールが宣告される",
+      "退場のみ",
+      "退場に加え自動的に10試合の出場停止"
+    ],
+    "correctIndex": 3,
+    "originalRuleText": "Rule 3.01 PENALTY: The umpire shall demand the ball and remove the offender from the game. In addition, the offender shall be suspended automatically for 10 games.",
+    "japaneseTranslation": "規則3.01 罰則：審判はボールを回収し、違反者を退場させなければならない。さらに、違反者は自動的に10試合の出場停止処分を受ける。"
+  },
+  {
+    "id": "mlb-022",
+    "ruleSection": "6.00",
+    "ruleNumber": "6.03(b)",
+    "difficulty": "hard",
+    "question": "打順を間違えて打撃を行い、相手チームがアピールした場合、どうなりますか？",
+    "choices": [
+      "間違って打った打者がアウトになる",
+      "本来打つべき打者がアウトになる",
+      "そのイニングが終了する",
+      "打ち直しとなる"
+    ],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 6.03(b): A batter shall be called out, on appeal, when he fails to bat in his proper turn, and another batter completes a time at bat in his place.",
+    "japaneseTranslation": "規則6.03(b)：打者が正しい打順で打席に立たず、別の打者がその代わりに打撃を完了した場合、アピールにより本来の打者がアウトと宣告される。",
+    "explanation": "打順間違いでアウトになるのは、間違えて打った打者ではなく「本来打つべきだった打者」。間違った打者の打撃結果は取り消される。"
+  },
+  {
+    "id": "mlb-023",
+    "ruleSection": "6.00",
+    "ruleNumber": "6.01(i)",
+    "difficulty": "normal",
+    "question": "本塁でのコリジョン（衝突）ルールでは、走者に対してどのような行為が禁止されていますか？",
+    "choices": [
+      "スライディングをすること",
+      "走路を変えること",
+      "捕手に体当たりすること",
+      "ヘルメットを脱ぐこと"
+    ],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 6.01(i)(1): A runner attempting to score may not deviate from his direct pathway to the plate in order to initiate contact with the catcher (or other player covering home plate), or otherwise initiate an avoidable collision.",
+    "japaneseTranslation": "規則6.01(i)(1)：得点しようとする走者は、捕手（または本塁をカバーする他の選手）との接触を開始するために直接的な走路から逸脱してはならず、また避けられる衝突を引き起こしてはならない。",
+    "explanation": "コリジョンルールは2014年に導入された。捕手の負傷を防ぐため、走者が意図的に捕手にぶつかることを禁止している。"
+  },
+  {
+    "id": "mlb-024",
+    "ruleSection": "7.00",
+    "ruleNumber": "7.01(a)",
+    "difficulty": "normal",
+    "question": "正式試合（レギュレーションゲーム）となるのは、最低何イニングが完了した場合ですか？",
+    "choices": ["3イニング", "4½イニング", "5イニング", "7イニング"],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 7.01(a): A regulation game consists of nine innings, unless extended because of a tie score, or shortened (1) because the home team needs none of its half of the ninth inning or only a fraction of it, or (2) because the umpire calls the game.",
+    "japaneseTranslation": "規則7.01(a)：正式試合は9イニングからなる。ただし、同点のために延長される場合、または(1)ホームチームが9回裏の打撃の全部または一部を必要としない場合、(2)審判が試合を宣告する場合は短縮される。",
+    "explanation": "コールドゲームとなった場合、5イニング（後攻チームがリードしている場合は4½イニング）が完了していれば正式試合として認められる。"
+  },
+  {
+    "id": "mlb-025",
+    "ruleSection": "7.00",
+    "ruleNumber": "7.01(a)",
+    "difficulty": "hard",
+    "question": "9回終了時に同点の場合、どうなりますか？",
+    "choices": [
+      "引き分けとなる",
+      "延長戦に入り、決着がつくまで続ける",
+      "翌日に再試合",
+      "PK戦のような特別ルールで決着"
+    ],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 7.01(a)(1): If the score is tied after nine completed innings play shall continue until (1) the visiting team has scored more total runs than the home team at the end of a completed inning, or (2) the home team scores the winning run in an uncompleted inning.",
+    "japaneseTranslation": "規則7.01(a)(1)：9イニング終了後に同点の場合、(1)完了したイニングの終了時にビジターチームがホームチームより多くの得点を記録するか、(2)ホームチームが未完了のイニングで勝ち越し点を記録するまで、試合は継続される。"
+  },
+  {
+    "id": "mlb-026",
+    "ruleSection": "8.00",
+    "ruleNumber": "8.01(a)",
+    "difficulty": "easy",
+    "question": "審判の判定に不満がある場合、選手や監督に認められている行動はどれですか？",
+    "choices": [
+      "審判に対してプレーのリプレイを要求できる",
+      "審判にルールの解釈について抗議できる",
+      "審判の判定を変更させることができる",
+      "審判を試合から退場させることができる"
+    ],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 8.02(a): Any umpire's decision which involves judgment, such as, but not limited to, whether a batted ball is fair or foul, whether a pitch is a strike or a ball, or whether a runner is safe or out, is final. No player, manager, coach or substitute shall object to any such judgment decisions.",
+    "japaneseTranslation": "規則8.02(a)：打球がフェアかファウルか、投球がストライクかボールか、走者がセーフかアウトかなどの判断を伴う審判の決定は最終的なものである。選手、監督、コーチ、代替選手は、そのような判断に対して異議を申し立ててはならない。",
+    "explanation": "審判の「判断」に対する抗議は認められないが、ルールの「適用」や「解釈」についてはアピールが可能。"
+  },
+  {
+    "id": "mlb-027",
+    "ruleSection": "8.00",
+    "ruleNumber": "8.01(a)",
+    "difficulty": "normal",
+    "question": "審判は試合の秩序を維持するためにどのような権限を持っていますか？",
+    "choices": [
+      "警告のみ発出できる",
+      "罰金を科すことができる",
+      "選手やコーチを退場させることができる",
+      "試合を中止にすることはできない"
+    ],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 8.01(a): The umpire shall be responsible for the conduct of the game in accordance with these official rules and for maintaining discipline and order. Each umpire has authority to disqualify any player, coach, manager, or substitute for objecting to decisions or for unsportsmanlike conduct or language.",
+    "japaneseTranslation": "規則8.01(a)：審判は公式規則に従って試合の進行に責任を負い、規律と秩序を維持する。各審判は、判定への異議やスポーツマンシップに反する行為・言動に対して、選手、コーチ、監督、または代替選手を退場させる権限を有する。"
+  },
+  {
+    "id": "mlb-028",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.07(f)",
+    "difficulty": "hard",
+    "question": "両投げ（スイッチピッチャー）の投手に関するルールとして正しいのはどれですか？",
+    "choices": [
+      "同じ打者に対して自由に投げ手を変更できる",
+      "同じ打者に対しては投げ手を変更できない",
+      "イニング中は投げ手を変更できない",
+      "投げ手の変更には監督の許可が必要"
+    ],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 5.07(f): A pitcher must indicate visually to the umpire-in-chief, the batter and any runners the hand with which he intends to pitch. The pitcher is not permitted to pitch with the other hand until the batter is retired, the batter becomes a runner, the inning ends, the batter is substituted for by a pinch-hitter or the pitcher incurs an injury.",
+    "japaneseTranslation": "規則5.07(f)：投手は、投球する手を球審、打者、および走者に視覚的に示さなければならない。投手は、打者がアウトになるか走者になるか、イニングが終了するか、代打が出るか、投手が負傷するまで、反対の手で投球することはできない。",
+    "explanation": "この規則は、パット・ベンディットのような両投げ投手のために設けられた「ベンディット・ルール」として知られている。"
+  },
+  {
+    "id": "mlb-029",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.06(b)(4)(C)",
+    "difficulty": "hard",
+    "question": "野手が故意にグラブを投げてフェアボールに当てた場合、打者にはいくつの塁が与えられますか？",
+    "choices": ["1つの塁", "2つの塁", "3つの塁", "自動的にホームラン"],
+    "correctIndex": 2,
+    "originalRuleText": "Rule 5.06(b)(4)(C): Three bases, if a fielder deliberately throws his glove at and touches a fair ball. The ball is in play and the batter may advance to home base at his peril.",
+    "japaneseTranslation": "規則5.06(b)(4)(C)：野手が故意にグラブを投げてフェアボールに当てた場合、打者には3つの塁が与えられる。ボールはインプレイで、打者は自己の危険で本塁まで進塁できる。"
+  },
+  {
+    "id": "mlb-030",
+    "ruleSection": "5.00",
+    "ruleNumber": "5.10(m)(1)",
+    "difficulty": "normal",
+    "question": "MLBの1試合あたりの投手交代なしのマウンド訪問の制限回数は何回ですか？（9イニング）",
+    "choices": ["3回", "4回", "5回", "6回"],
+    "correctIndex": 1,
+    "originalRuleText": "Rule 5.10(m)(1): Mound visits without a pitching change shall be limited to four per team, per nine innings.",
+    "japaneseTranslation": "規則5.10(m)(1)：投手交代を伴わないマウンド訪問は、9イニングあたり各チーム4回に制限される。"
+  }
+]
