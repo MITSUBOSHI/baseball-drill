@@ -3,40 +3,45 @@
 import { useState } from "react";
 import Link from "next/link";
 import { use } from "react";
-import drillsData from "@/data/drills.json";
+import { getDrillsByCategory } from "@/lib/drills";
 import {
   CATEGORIES,
+  CATEGORY_COLORS,
   LEVEL_LABELS,
   POSITION_LABELS,
   PITCHING_TYPE_LABELS,
   BATTING_TYPE_LABELS,
-  type Drill,
+  type Category,
   type Level,
   type FieldingPosition,
   type PitchingType,
   type BattingType,
 } from "@/types/drill";
+import { DrillCard } from "@/components/DrillCard";
 import { FuriganaText } from "@/components/FuriganaText";
 
-const drills = drillsData as Drill[];
-
-const CATEGORY_COLORS: Record<string, string> = {
-  basics: "bg-blue-500",
-  strategy: "bg-purple-500",
-  pitching: "bg-red-500",
-  batting: "bg-orange-500",
-  fielding: "bg-green-500",
-  running: "bg-teal-500",
-  training: "bg-amber-500",
-};
-
-const LEVEL_BADGE_STYLES: Record<Level, string> = {
-  beginner:
-    "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-  intermediate:
-    "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
-  advanced: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
-};
+function FilterButton({
+  active,
+  onClick,
+  label,
+}: {
+  active: boolean;
+  onClick: () => void;
+  label: string;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`px-3 py-1 rounded-full text-sm transition-colors ${
+        active
+          ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
+          : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+      }`}
+    >
+      <FuriganaText text={label} />
+    </button>
+  );
+}
 
 export default function CategoryPage({
   params,
@@ -64,7 +69,7 @@ export default function CategoryPage({
     );
   }
 
-  const categoryDrills = drills.filter((d) => d.category === category);
+  const categoryDrills = getDrillsByCategory(category as Category);
 
   const filteredDrills = categoryDrills.filter((d) => {
     if (levelFilter !== "all" && d.level !== levelFilter) return false;
@@ -104,7 +109,7 @@ export default function CategoryPage({
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-3">
           <div
-            className={`w-1.5 h-8 rounded-full ${CATEGORY_COLORS[category]}`}
+            className={`w-1.5 h-8 rounded-full ${CATEGORY_COLORS[categoryInfo.id]}`}
           />
           <h1 className="text-3xl font-bold">
             <FuriganaText text={`${categoryInfo.name}の練習ドリル`} />
@@ -120,19 +125,12 @@ export default function CategoryPage({
           <span className="text-sm font-medium text-gray-500">レベル:</span>
           {(["all", "beginner", "intermediate", "advanced"] as const).map(
             (level) => (
-              <button
+              <FilterButton
                 key={level}
+                active={levelFilter === level}
                 onClick={() => setLevelFilter(level)}
-                className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                  levelFilter === level
-                    ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-                }`}
-              >
-                <FuriganaText
-                  text={level === "all" ? "全て" : LEVEL_LABELS[level]}
-                />
-              </button>
+                label={level === "all" ? "全て" : LEVEL_LABELS[level]}
+              />
             )
           )}
         </div>
@@ -140,46 +138,28 @@ export default function CategoryPage({
         {category === "pitching" && (
           <div className="flex gap-2 items-center">
             <span className="text-sm font-medium text-gray-500">タイプ:</span>
-            {(["all", "form", "control", "breaking"] as const).map(
-              (pt) => (
-                <button
-                  key={pt}
-                  onClick={() => setPitchingTypeFilter(pt)}
-                  className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                    pitchingTypeFilter === pt
-                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-                  }`}
-                >
-                  <FuriganaText
-                    text={pt === "all" ? "全て" : PITCHING_TYPE_LABELS[pt]}
-                  />
-                </button>
-              )
-            )}
+            {(["all", "form", "control", "breaking"] as const).map((pt) => (
+              <FilterButton
+                key={pt}
+                active={pitchingTypeFilter === pt}
+                onClick={() => setPitchingTypeFilter(pt)}
+                label={pt === "all" ? "全て" : PITCHING_TYPE_LABELS[pt]}
+              />
+            ))}
           </div>
         )}
 
         {category === "batting" && (
           <div className="flex gap-2 items-center">
             <span className="text-sm font-medium text-gray-500">タイプ:</span>
-            {(["all", "swing", "tee", "live"] as const).map(
-              (bt) => (
-                <button
-                  key={bt}
-                  onClick={() => setBattingTypeFilter(bt)}
-                  className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                    battingTypeFilter === bt
-                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-                  }`}
-                >
-                  <FuriganaText
-                    text={bt === "all" ? "全て" : BATTING_TYPE_LABELS[bt]}
-                  />
-                </button>
-              )
-            )}
+            {(["all", "swing", "tee", "live"] as const).map((bt) => (
+              <FilterButton
+                key={bt}
+                active={battingTypeFilter === bt}
+                onClick={() => setBattingTypeFilter(bt)}
+                label={bt === "all" ? "全て" : BATTING_TYPE_LABELS[bt]}
+              />
+            ))}
           </div>
         )}
 
@@ -190,19 +170,12 @@ export default function CategoryPage({
             </span>
             {(["all", "catcher", "infield", "outfield"] as const).map(
               (pos) => (
-                <button
+                <FilterButton
                   key={pos}
+                  active={positionFilter === pos}
                   onClick={() => setPositionFilter(pos)}
-                  className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                    positionFilter === pos
-                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-                  }`}
-                >
-                  <FuriganaText
-                    text={pos === "all" ? "全て" : POSITION_LABELS[pos]}
-                  />
-                </button>
+                  label={pos === "all" ? "全て" : POSITION_LABELS[pos]}
+                />
               )
             )}
           </div>
@@ -216,34 +189,7 @@ export default function CategoryPage({
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredDrills.map((drill) => (
-            <Link
-              key={drill.id}
-              href={`/drills/${category}/${drill.id}`}
-              className="group block rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <span
-                  className={`px-2 py-0.5 rounded text-xs font-medium ${LEVEL_BADGE_STYLES[drill.level]}`}
-                >
-                  <FuriganaText text={LEVEL_LABELS[drill.level]} />
-                </span>
-                {drill.position && (
-                  <span className="px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
-                    <FuriganaText text={POSITION_LABELS[drill.position]} />
-                  </span>
-                )}
-              </div>
-              <h3 className="font-semibold mb-2 group-hover:text-orange-500 transition-colors">
-                <FuriganaText text={drill.title} />
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
-                <FuriganaText text={drill.description} />
-              </p>
-              <div className="flex gap-4 text-xs text-gray-500 dark:text-gray-500">
-                <span>&#128336; {drill.duration}</span>
-                <span>&#128101; {drill.players}</span>
-              </div>
-            </Link>
+            <DrillCard key={drill.id} drill={drill} />
           ))}
         </div>
       )}

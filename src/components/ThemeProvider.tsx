@@ -3,11 +3,11 @@
 import {
   createContext,
   useContext,
-  useState,
   useCallback,
   useEffect,
   type ReactNode,
 } from "react";
+import { useLocalStorageString } from "@/lib/use-local-storage";
 
 type Theme = "light" | "dark" | "system";
 
@@ -19,6 +19,10 @@ const ThemeContext = createContext<{
   cycleTheme: () => {},
 });
 
+function isTheme(value: string | null): value is Theme {
+  return value === "light" || value === "dark" || value === "system";
+}
+
 function applyTheme(theme: Theme) {
   const isDark =
     theme === "dark" ||
@@ -28,12 +32,8 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("system");
-
-  useEffect(() => {
-    const stored = (localStorage.getItem("theme") as Theme) || "system";
-    setTheme(stored);
-  }, []);
+  const [stored, setStored] = useLocalStorageString("theme");
+  const theme: Theme = isTheme(stored) ? stored : "system";
 
   useEffect(() => {
     applyTheme(theme);
@@ -46,13 +46,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [theme]);
 
   const cycleTheme = useCallback(() => {
-    setTheme((prev) => {
-      const next =
-        prev === "light" ? "dark" : prev === "dark" ? "system" : "light";
-      localStorage.setItem("theme", next);
-      return next;
-    });
-  }, []);
+    const next: Theme =
+      theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
+    setStored(next);
+  }, [theme, setStored]);
 
   return (
     <ThemeContext.Provider value={{ theme, cycleTheme }}>

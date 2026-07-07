@@ -3,11 +3,10 @@
 import {
   createContext,
   useContext,
-  useState,
   useCallback,
-  useEffect,
   type ReactNode,
 } from "react";
+import { useLocalStorageString } from "@/lib/use-local-storage";
 
 const FuriganaContext = createContext<{
   furigana: boolean;
@@ -18,19 +17,12 @@ const FuriganaContext = createContext<{
 });
 
 export function FuriganaProvider({ children }: { children: ReactNode }) {
-  const [furigana, setFurigana] = useState(false);
-
-  useEffect(() => {
-    setFurigana(localStorage.getItem("furigana") === "true");
-  }, []);
+  const [stored, setStored] = useLocalStorageString("furigana");
+  const furigana = stored === "true";
 
   const toggleFurigana = useCallback(() => {
-    setFurigana((prev) => {
-      const next = !prev;
-      localStorage.setItem("furigana", String(next));
-      return next;
-    });
-  }, []);
+    setStored(String(!furigana));
+  }, [furigana, setStored]);
 
   return (
     <FuriganaContext.Provider value={{ furigana, toggleFurigana }}>

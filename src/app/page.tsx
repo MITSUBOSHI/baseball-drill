@@ -1,44 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { CATEGORIES } from "@/types/drill";
+import {
+  CATEGORIES,
+  CATEGORY_COLORS,
+  CATEGORY_LONG_DESCRIPTIONS,
+} from "@/types/drill";
 import { FuriganaText } from "@/components/FuriganaText";
 
-const CATEGORY_COLORS: Record<string, string> = {
-  basics: "bg-blue-500",
-  strategy: "bg-purple-500",
-  pitching: "bg-red-500",
-  batting: "bg-orange-500",
-  fielding: "bg-green-500",
-  running: "bg-teal-500",
-  training: "bg-amber-500",
-};
-
-const CATEGORY_DESCRIPTIONS: Record<string, string> = {
-  basics:
-    "キャッチボール、ゴロ捕球、ベースランニングなど、野球のすべてのプレーの土台となる基本技術を磨きます。",
-  strategy:
-    "サインプレー、走塁判断、バント戦術など、試合で勝つための頭脳的なプレーを学びます。",
-  pitching:
-    "ピッチングフォーム、コントロール、変化球まで、投手に必要な技術を段階的に習得できます。",
-  batting:
-    "素振り、ティーバッティング、実打練習まで、確実にミートするための技術を体に覚えさせます。",
-  fielding:
-    "内野・外野・捕手のポジション別に、守備の基本から連携プレーまでカバーします。",
-  running:
-    "ベースランニング、盗塁、スライディング、走塁判断など、走塁技術を総合的に磨きます。",
-  training:
-    "体幹・下半身・回旋力・瞬発力など、野球のパフォーマンスに直結する筋力トレーニングメニューです。",
-};
-
 const CATEGORY_ICONS: Record<string, string> = {
-  basics: "&#9898;",
-  strategy: "&#128203;",
-  pitching: "&#128293;",
-  batting: "&#9889;",
-  fielding: "&#128737;",
-  running: "&#127939;",
-  training: "&#128170;",
+  basics: "⚪",
+  strategy: "\u{1F4CB}",
+  pitching: "\u{1F525}",
+  batting: "⚡",
+  fielding: "\u{1F6E1}",
+  running: "\u{1F3C3}",
+  training: "\u{1F4AA}",
 };
 
 export default function Home() {
@@ -69,18 +46,13 @@ export default function Home() {
               <div className={`h-1.5 ${CATEGORY_COLORS[cat.id]}`} />
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <span
-                    className="text-2xl"
-                    dangerouslySetInnerHTML={{
-                      __html: CATEGORY_ICONS[cat.id],
-                    }}
-                  />
+                  <span className="text-2xl">{CATEGORY_ICONS[cat.id]}</span>
                   <h3 className="text-lg font-semibold group-hover:text-orange-500 transition-colors">
                     <FuriganaText text={cat.name} />
                   </h3>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  <FuriganaText text={CATEGORY_DESCRIPTIONS[cat.id]} />
+                  <FuriganaText text={CATEGORY_LONG_DESCRIPTIONS[cat.id]} />
                 </p>
               </div>
             </Link>

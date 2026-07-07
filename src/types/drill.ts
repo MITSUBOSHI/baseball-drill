@@ -108,6 +108,42 @@ export const LEVEL_LABELS: Record<Level, string> = {
   advanced: "上級",
 };
 
+// トップページのカテゴリカードに表示する詳しめの紹介文
+export const CATEGORY_LONG_DESCRIPTIONS: Record<Category, string> = {
+  basics:
+    "キャッチボール、ゴロ捕球、ベースランニングなど、野球のすべてのプレーの土台となる基本技術を磨きます。",
+  strategy:
+    "サインプレー、走塁判断、バント戦術など、試合で勝つための頭脳的なプレーを学びます。",
+  pitching:
+    "ピッチングフォーム、コントロール、変化球まで、投手に必要な技術を段階的に習得できます。",
+  batting:
+    "素振り、ティーバッティング、実打練習まで、確実にミートするための技術を体に覚えさせます。",
+  fielding:
+    "内野・外野・捕手のポジション別に、守備の基本から連携プレーまでカバーします。",
+  running:
+    "ベースランニング、盗塁、スライディング、走塁判断など、走塁技術を総合的に磨きます。",
+  training:
+    "体幹・下半身・回旋力・瞬発力など、野球のパフォーマンスに直結する筋力トレーニングメニューです。",
+};
+
+export const CATEGORY_COLORS: Record<Category, string> = {
+  basics: "bg-blue-500",
+  strategy: "bg-purple-500",
+  pitching: "bg-red-500",
+  batting: "bg-orange-500",
+  fielding: "bg-green-500",
+  running: "bg-teal-500",
+  training: "bg-amber-500",
+};
+
+export const LEVEL_BADGE_STYLES: Record<Level, string> = {
+  beginner:
+    "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+  intermediate:
+    "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
+  advanced: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
+};
+
 export const POSITION_LABELS: Record<FieldingPosition, string> = {
   catcher: "捕手",
   infield: "内野手",

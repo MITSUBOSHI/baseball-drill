@@ -3,28 +3,12 @@
 import Link from "next/link";
 import { FuriganaText } from "./FuriganaText";
 import { FavoriteButton } from "./FavoriteButton";
-import type { Drill, Level } from "@/types/drill";
-
-const LEVEL_BADGE_STYLES: Record<Level, string> = {
-  beginner:
-    "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-  intermediate:
-    "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
-  advanced: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
-};
-
-const LEVEL_LABELS: Record<Level, string> = {
-  beginner: "初級",
-  intermediate: "中級",
-  advanced: "上級",
-};
-
-const POSITION_LABELS: Record<string, string> = {
-  catcher: "捕手",
-  infield: "内野手",
-  outfield: "外野手",
-  all: "全ポジション",
-};
+import {
+  LEVEL_BADGE_STYLES,
+  LEVEL_LABELS,
+  POSITION_LABELS,
+  type Drill,
+} from "@/types/drill";
 
 export function DrillDetail({
   drill,

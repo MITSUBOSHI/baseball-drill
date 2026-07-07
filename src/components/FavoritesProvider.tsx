@@ -3,11 +3,11 @@
 import {
   createContext,
   useContext,
-  useState,
   useCallback,
-  useEffect,
+  useMemo,
   type ReactNode,
 } from "react";
+import { useLocalStorageString } from "@/lib/use-local-storage";
 
 const FavoritesContext = createContext<{
   favorites: string[];
@@ -19,27 +19,29 @@ const FavoritesContext = createContext<{
   isFavorite: () => false,
 });
 
+function parseFavorites(raw: string | null): string[] {
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed.filter((v) => typeof v === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
 export function FavoritesProvider({ children }: { children: ReactNode }) {
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [raw, setRaw] = useLocalStorageString("favorites");
+  const favorites = useMemo(() => parseFavorites(raw), [raw]);
 
-  useEffect(() => {
-    try {
-      const stored = JSON.parse(localStorage.getItem("favorites") || "[]");
-      setFavorites(stored);
-    } catch {
-      // ignore
-    }
-  }, []);
-
-  const toggleFavorite = useCallback((id: string) => {
-    setFavorites((prev) => {
-      const next = prev.includes(id)
-        ? prev.filter((fid) => fid !== id)
-        : [...prev, id];
-      localStorage.setItem("favorites", JSON.stringify(next));
-      return next;
-    });
-  }, []);
+  const toggleFavorite = useCallback(
+    (id: string) => {
+      const next = favorites.includes(id)
+        ? favorites.filter((fid) => fid !== id)
+        : [...favorites, id];
+      setRaw(JSON.stringify(next));
+    },
+    [favorites, setRaw]
+  );
 
   const isFavorite = useCallback(
     (id: string) => favorites.includes(id),

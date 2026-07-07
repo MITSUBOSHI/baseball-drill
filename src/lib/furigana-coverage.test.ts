@@ -1,9 +1,20 @@
 import { annotateFurigana } from "./furigana-dict";
 import drillsData from "@/data/drills.json";
-import { CATEGORIES, LEVEL_LABELS, POSITION_LABELS, PITCHING_TYPE_LABELS, BATTING_TYPE_LABELS } from "@/types/drill";
+import quizData from "@/data/mlb-rules-quiz.json";
+import {
+  CATEGORIES,
+  CATEGORY_LONG_DESCRIPTIONS,
+  LEVEL_LABELS,
+  POSITION_LABELS,
+  PITCHING_TYPE_LABELS,
+  BATTING_TYPE_LABELS,
+} from "@/types/drill";
 import type { Drill } from "@/types/drill";
+import { RULE_SECTION_LABELS, LEAGUE_INFO } from "@/types/quiz";
+import type { QuizQuestion } from "@/types/quiz";
 
 const drills = drillsData as Drill[];
+const quizQuestions = quizData as QuizQuestion[];
 
 // 漢字判定（CJK統合漢字 + CJK統合漢字拡張A/B）
 function isKanji(ch: string): boolean {
@@ -49,6 +60,23 @@ function collectAllTexts(): string[] {
     texts.push(cat.description);
     texts.push(`${cat.name}の練習ドリル`);
   }
+  texts.push(...Object.values(CATEGORY_LONG_DESCRIPTIONS));
+
+  // クイズデータ（設問・選択肢・日本語訳・解説がFuriganaTextで表示される）
+  for (const q of quizQuestions) {
+    texts.push(q.question);
+    texts.push(...q.choices);
+    texts.push(q.japaneseTranslation);
+    if (q.explanation) texts.push(q.explanation);
+  }
+
+  // クイズ関連のラベル
+  for (const label of Object.values(RULE_SECTION_LABELS)) {
+    texts.push(label.ja);
+  }
+  for (const info of Object.values(LEAGUE_INFO)) {
+    texts.push(info.description);
+  }
 
   // ラベル
   texts.push(...Object.values(LEVEL_LABELS));
@@ -68,6 +96,24 @@ function collectAllTexts(): string[] {
   texts.push("練習手順");
   texts.push("所要時間");
   texts.push("人数");
+
+  // クイズ・ルール関連のUI固定テキスト
+  texts.push("ルールを学ぶ");
+  texts.push("ルールクイズ");
+  texts.push("ルールクイズに戻る");
+  texts.push("野球の公式ルールをクイズで学ぼう");
+  texts.push("MLBルールクイズ");
+  texts.push("NPBルールクイズ");
+  texts.push("MLB公式野球規則（2025年版）に基づく4択クイズ");
+  texts.push("MLB公式野球規則（2025年版）に基づくクイズ。原文と日本語訳つき。");
+  texts.push("MLB公式野球規則（2025年版）を4択クイズで学ぼう。原文と日本語訳つき。");
+  texts.push("日本プロ野球の公認野球規則に基づくクイズ（近日公開予定）");
+  texts.push("NPBの公認野球規則に基づくクイズは現在準備中です。近日公開予定ですので、お楽しみに！");
+  texts.push("準備中");
+  texts.push("セクション");
+  texts.push("難易度");
+  texts.push("問題数");
+  texts.push("クイズを始める");
 
   return texts;
 }

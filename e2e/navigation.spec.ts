@@ -46,7 +46,36 @@ test.describe("検索機能", () => {
 test.describe("カテゴリフィルタ", () => {
   test("レベルでフィルタできる", async ({ page }) => {
     await page.goto("/drills/pitching");
-    await page.click("text=中級");
-    await expect(page.locator("text=コントロール練習")).toBeVisible();
+    // ハイドレーション完了前のクリックは無視されるため、反映されるまでリトライする
+    await expect(async () => {
+      await page.getByRole("button", { name: "中級", exact: true }).click();
+      await expect(
+        page.getByRole("heading", { name: "投球フォームの基礎" })
+      ).not.toBeVisible({ timeout: 1000 });
+    }).toPass({ timeout: 15000 });
+    await expect(
+      page.getByRole("heading", { name: "コントロール練習（9分割）" })
+    ).toBeVisible();
+  });
+});
+
+test.describe("ルールクイズ", () => {
+  test("クイズを開始して回答できる", async ({ page }) => {
+    await page.goto("/rules/mlb");
+    await page.getByRole("button", { name: "クイズを始める" }).click();
+    await expect(page.getByText("問題 1 /")).toBeVisible();
+    // 選択肢（A.〜D.で始まるボタン）のいずれかを回答すると解説が表示される
+    await page.getByRole("button", { name: /^A\./ }).click();
+    await expect(page.getByText(/^Rule /).first()).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "次の問題へ" })
+    ).toBeVisible();
+  });
+
+  test("セクションを選ぶと出題可能数が変わる", async ({ page }) => {
+    await page.goto("/rules/mlb");
+    await page.getByRole("button", { name: "公式記録員" }).click();
+    await expect(page.getByText(/出題可能な問題数：\d+問/)).toBeVisible();
+    await expect(page.getByText("出題可能な問題数：0問")).not.toBeVisible();
   });
 });
