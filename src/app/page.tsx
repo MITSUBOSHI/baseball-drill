@@ -14,7 +14,7 @@ const courses = [
     label: "プレーを観る",
     title: "投球・打撃の技術",
     description: "配球、リリース、打球角度。中継を見る目が変わる技術の要点を学びます。",
-    meta: "全18レッスン · 初級〜中級",
+    meta: "全34ドリル · 初級〜上級",
     href: "/drills",
     color: "blue",
     icon: "ball",
@@ -23,7 +23,7 @@ const courses = [
     label: "采配を読む",
     title: "野球戦術とゲーム理論",
     description: "バント、継投、守備シフト。その一手が得点期待値をどう変えるか考えます。",
-    meta: "全10レッスン · 中級",
+    meta: "全4ドリル · 中級〜上級",
     href: "/drills/strategy",
     color: "orange",
     icon: "diamond",
@@ -62,13 +62,13 @@ export default function Home() {
             <div className="situation"><span className="base-diamond active"/><span className="base-diamond active"/><span className="base-diamond"/><b>1 OUT</b></div>
             <div className="decision-card">
               <div><span className="pulse"/><small>この場面、あなたなら？</small></div>
-              <strong>無死ではなく1死一・二塁。送りバントの価値は？</strong>
-              <div className="expectancy"><span>強攻</span><i><b style={{width:"68%"}}/></i><em>0.91</em></div>
-              <div className="expectancy muted"><span>バント</span><i><b style={{width:"52%"}}/></i><em>0.69</em></div>
-              <small className="caption">得点期待値（架空データ）</small>
+              <strong>バント成功の前後で、状況の期待値はどう変わる？</strong>
+              <div className="expectancy"><span>現在</span><i><b style={{width:"68%"}}/></i><em>0.91</em></div>
+              <div className="expectancy muted"><span>成功後</span><i><b style={{width:"52%"}}/></i><em>0.69</em></div>
+              <small className="caption">説明用の架空値。戦術評価には成功・失敗確率等が必要</small>
             </div>
           </div>
-          <div className="floating-stat stat-one"><small>打者 OPS</small><b>.842</b><span>リーグ平均より +12%</span></div>
+          <div className="floating-stat stat-one"><small>打者 OPS（架空例）</small><b>.842</b><span>環境補正なし</span></div>
           <div className="floating-stat stat-two"><small>勝利確率</small><b>58<sup>%</sup></b><span>▲ 7.4%</span></div>
         </div>
       </section>
@@ -99,7 +99,7 @@ export default function Home() {
       <section className="section-shell daily-card">
         <div className="daily-date"><b>11</b><span>JUL<br/>2026</span></div>
         <div className="daily-copy"><span>TODAY&apos;S QUESTION</span><h2>「出塁率」は、なぜ打率より<br className="desktop-only"/>得点との関係が強い？</h2><p>3分でわかる、今日の野球クイズ。</p></div>
-        <Link href="/learn#quiz" className="round-link" aria-label="今日の問題に挑戦">→</Link>
+        <Link href="/learn/obp" className="round-link" aria-label="出塁率を学ぶ">→</Link>
       </section>
     </div>
   );
