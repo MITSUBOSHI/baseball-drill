@@ -1,15 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import type { QuizQuestion } from "@/types/quiz";
+import type { AnswerRecord, QuizQuestion } from "@/types/quiz";
 import { RuleExplanation } from "./RuleExplanation";
 import { FuriganaText } from "./FuriganaText";
-
-interface AnswerRecord {
-  questionId: string;
-  selectedIndex: number;
-  isCorrect: boolean;
-}
 
 export function QuizResult({
   questions,

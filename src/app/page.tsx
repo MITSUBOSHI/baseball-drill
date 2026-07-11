@@ -5,7 +5,7 @@ const courses = [
     label: "数字で観る",
     title: "セイバーメトリクス入門",
     description: "打率の先へ。出塁率・長打率・OPSを、NPBの試合を想定したケースで理解します。",
-    meta: "全12レッスン · 初級",
+    meta: "全24レッスン · 初級〜中級",
     href: "/learn",
     color: "mint",
     icon: "chart",

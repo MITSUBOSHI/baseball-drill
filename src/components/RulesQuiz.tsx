@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import type { QuizQuestion as QuizQuestionType, RuleSection, QuizDifficulty } from "@/types/quiz";
+import { useState, useCallback, type ReactNode } from "react";
+import type { AnswerRecord, QuizQuestion as QuizQuestionType, RuleSection, QuizDifficulty } from "@/types/quiz";
 import { RULE_SECTION_LABELS } from "@/types/quiz";
 import { getFilteredQuestions, shuffleQuestions } from "@/lib/quiz";
 import { QuizProgress } from "./QuizProgress";
@@ -19,10 +19,38 @@ const DIFFICULTY_OPTIONS: { value: QuizDifficulty | "all"; label: string }[] = [
   { value: "hard", label: "むずかしい" },
 ];
 
-interface AnswerRecord {
-  questionId: string;
-  selectedIndex: number;
-  isCorrect: boolean;
+function questionPool(
+  section: RuleSection | "all",
+  difficulty: QuizDifficulty | "all"
+): QuizQuestionType[] {
+  return getFilteredQuestions(
+    section === "all" ? undefined : section,
+    difficulty === "all" ? undefined : difficulty
+  );
+}
+
+function OptionButton({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
+        active
+          ? "bg-indigo-600 text-white border-indigo-600"
+          : "border-gray-300 dark:border-gray-600 hover:border-indigo-400"
+      }`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
 }
 
 export function RulesQuiz() {
@@ -35,11 +63,7 @@ export function RulesQuiz() {
   const [answers, setAnswers] = useState<AnswerRecord[]>([]);
 
   const startQuiz = useCallback(() => {
-    const filtered = getFilteredQuestions(
-      section === "all" ? undefined : section,
-      difficulty === "all" ? undefined : difficulty
-    );
-    const selected = shuffleQuestions(filtered, questionCount);
+    const selected = shuffleQuestions(questionPool(section, difficulty), questionCount);
     if (selected.length === 0) return;
     setQuestions(selected);
     setCurrentIndex(0);
@@ -70,28 +94,11 @@ export function RulesQuiz() {
     }
   }, [currentIndex, questions.length]);
 
-  const handleRestart = useCallback(() => {
-    const selected = shuffleQuestions(
-      getFilteredQuestions(
-        section === "all" ? undefined : section,
-        difficulty === "all" ? undefined : difficulty
-      ),
-      questionCount
-    );
-    setQuestions(selected);
-    setCurrentIndex(0);
-    setAnswers([]);
-    setPhase("active");
-  }, [section, difficulty, questionCount]);
-
   const handleBackToSettings = useCallback(() => {
     setPhase("settings");
   }, []);
 
-  const availableCount = getFilteredQuestions(
-    section === "all" ? undefined : section,
-    difficulty === "all" ? undefined : difficulty
-  ).length;
+  const availableCount = questionPool(section, difficulty).length;
 
   if (phase === "settings") {
     return (
@@ -101,30 +108,13 @@ export function RulesQuiz() {
             <FuriganaText text="セクション" />
           </h3>
           <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
-                section === "all"
-                  ? "bg-indigo-600 text-white border-indigo-600"
-                  : "border-gray-300 dark:border-gray-600 hover:border-indigo-400"
-              }`}
-              onClick={() => setSection("all")}
-            >
+            <OptionButton active={section === "all"} onClick={() => setSection("all")}>
               全セクション
-            </button>
+            </OptionButton>
             {(Object.keys(RULE_SECTION_LABELS) as RuleSection[]).map((s) => (
-              <button
-                key={s}
-                type="button"
-                className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
-                  section === s
-                    ? "bg-indigo-600 text-white border-indigo-600"
-                    : "border-gray-300 dark:border-gray-600 hover:border-indigo-400"
-                }`}
-                onClick={() => setSection(s)}
-              >
+              <OptionButton key={s} active={section === s} onClick={() => setSection(s)}>
                 <FuriganaText text={RULE_SECTION_LABELS[s].ja} />
-              </button>
+              </OptionButton>
             ))}
           </div>
         </div>
@@ -135,18 +125,13 @@ export function RulesQuiz() {
           </h3>
           <div className="flex flex-wrap gap-2">
             {DIFFICULTY_OPTIONS.map((opt) => (
-              <button
+              <OptionButton
                 key={opt.value}
-                type="button"
-                className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
-                  difficulty === opt.value
-                    ? "bg-indigo-600 text-white border-indigo-600"
-                    : "border-gray-300 dark:border-gray-600 hover:border-indigo-400"
-                }`}
+                active={difficulty === opt.value}
                 onClick={() => setDifficulty(opt.value)}
               >
                 {opt.label}
-              </button>
+              </OptionButton>
             ))}
           </div>
         </div>
@@ -157,30 +142,17 @@ export function RulesQuiz() {
           </h3>
           <div className="flex flex-wrap gap-2">
             {QUESTION_COUNTS.map((count) => (
-              <button
+              <OptionButton
                 key={count}
-                type="button"
-                className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
-                  questionCount === count
-                    ? "bg-indigo-600 text-white border-indigo-600"
-                    : "border-gray-300 dark:border-gray-600 hover:border-indigo-400"
-                }`}
+                active={questionCount === count}
                 onClick={() => setQuestionCount(count)}
               >
                 {count}問
-              </button>
+              </OptionButton>
             ))}
-            <button
-              type="button"
-              className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
-                questionCount === 0
-                  ? "bg-indigo-600 text-white border-indigo-600"
-                  : "border-gray-300 dark:border-gray-600 hover:border-indigo-400"
-              }`}
-              onClick={() => setQuestionCount(0)}
-            >
+            <OptionButton active={questionCount === 0} onClick={() => setQuestionCount(0)}>
               全問（{availableCount}問）
-            </button>
+            </OptionButton>
           </div>
         </div>
 
@@ -220,7 +192,7 @@ export function RulesQuiz() {
       <QuizResult
         questions={questions}
         answers={answers}
-        onRestart={handleRestart}
+        onRestart={startQuiz}
         onBackToSettings={handleBackToSettings}
       />
     );

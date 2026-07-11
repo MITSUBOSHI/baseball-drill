@@ -26,14 +26,10 @@ export interface QuizQuestion {
   explanation?: string;
 }
 
-export interface QuizResult {
-  totalQuestions: number;
-  correctCount: number;
-  answers: {
-    questionId: string;
-    selectedIndex: number;
-    isCorrect: boolean;
-  }[];
+export interface AnswerRecord {
+  questionId: string;
+  selectedIndex: number;
+  isCorrect: boolean;
 }
 
 export const RULE_SECTION_LABELS: Record<RuleSection, { en: string; ja: string }> = {

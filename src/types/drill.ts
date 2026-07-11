@@ -54,7 +54,6 @@ export interface CategoryInfo {
   id: Category;
   name: string;
   description: string;
-  icon: string;
 }
 
 export const CATEGORIES: CategoryInfo[] = [
@@ -62,43 +61,36 @@ export const CATEGORIES: CategoryInfo[] = [
     id: "basics",
     name: "基本練習",
     description: "キャッチボール、ランニング、ストレッチなど野球の基礎となる練習",
-    icon: "diamond",
   },
   {
     id: "strategy",
     name: "戦略",
     description: "サインプレー、走塁判断、状況別の戦術練習",
-    icon: "clipboard",
   },
   {
     id: "pitching",
     name: "投球",
     description: "ピッチングフォーム、変化球、コントロール練習",
-    icon: "flame",
   },
   {
     id: "batting",
     name: "打撃",
     description: "バッティングフォーム、ティーバッティング、実打練習",
-    icon: "zap",
   },
   {
     id: "fielding",
     name: "守備",
     description: "ポジション別の守備練習、連携プレー、送球練習",
-    icon: "shield",
   },
   {
     id: "running",
     name: "走塁",
     description: "ベースランニング、盗塁、走塁判断など走塁技術の練習",
-    icon: "runner",
   },
   {
     id: "training",
     name: "筋トレ",
     description: "野球に必要な筋力・体幹・瞬発力を鍛えるトレーニング",
-    icon: "dumbbell",
   },
 ];
 
@@ -134,14 +126,6 @@ export const CATEGORY_COLORS: Record<Category, string> = {
   fielding: "bg-green-500",
   running: "bg-teal-500",
   training: "bg-amber-500",
-};
-
-export const LEVEL_BADGE_STYLES: Record<Level, string> = {
-  beginner:
-    "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-  intermediate:
-    "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
-  advanced: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
 };
 
 export const POSITION_LABELS: Record<FieldingPosition, string> = {

@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import drillsData from "@/data/drills.json";
-import { CATEGORIES, type Drill } from "@/types/drill";
+import { getAllDrills, getDrillById } from "@/lib/drills";
+import { CATEGORIES } from "@/types/drill";
 import { DrillDetail } from "@/components/DrillDetail";
 
-const drills = drillsData as Drill[];
-
 export async function generateStaticParams() {
-  return drills.map((drill) => ({
+  return getAllDrills().map((drill) => ({
     category: drill.category,
     id: drill.id,
   }));
@@ -18,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ category: string; id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const drill = drills.find((d) => d.id === id);
+  const drill = getDrillById(id);
   if (!drill) return { title: "ドリルが見つかりません | BALLIQ" };
 
   const categoryInfo = CATEGORIES.find((c) => c.id === drill.category);
@@ -35,7 +33,7 @@ export default async function DrillPage({
 }) {
   const { category, id } = await params;
 
-  const drill = drills.find((d) => d.id === id);
+  const drill = getDrillById(id);
   const categoryInfo = CATEGORIES.find((c) => c.id === category);
 
   if (!drill || !categoryInfo) {
