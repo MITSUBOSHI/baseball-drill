@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { QuickCheck } from "@/components/QuickCheck";
 
 const lessons = [
   ["01", "打率だけでは見えないこと", "打率の長所と弱点", "5 min", true],
@@ -13,7 +14,7 @@ export default function LearnPage() {
     <section className="content-shell lessons-section">
       <div className="lesson-intro"><span>CHAPTER 1</span><div><h2>打者をどう評価する？</h2><p>まずは、よく知っている「打率」から。<br/>見慣れた数字を疑うところから始めます。</p></div></div>
       <div className="lesson-list">{lessons.map(([n, title, desc, time, active]) => <article className={active ? "lesson-row active" : "lesson-row"} key={n}><span className="lesson-num">{n}</span><div><h3>{title}</h3><p>{desc}</p></div><small>{time}</small>{active ? <Link href="#quiz" aria-label={`${title}を開始`}>→</Link> : <button aria-label={`${title}は未完了`}>○</button>}</article>)}</div>
-      <div className="mini-quiz" id="quiz"><div><span>QUICK CHECK</span><h2>打率が同じ .280 の二人。<br/>より得点に貢献しそうなのは？</h2></div><div className="player-choice"><button><b>A</b><span>四球が少なく<br/>単打が多い打者</span></button><button><b>B</b><span>四球と長打が<br/>多い打者</span></button></div><p>ヒント：アウトにならないことと、より多くの塁を進むことを考えよう。</p></div>
+      <QuickCheck />
     </section>
   </div>;
 }
