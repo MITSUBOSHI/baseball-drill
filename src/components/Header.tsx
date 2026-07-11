@@ -6,7 +6,7 @@ import Link from "next/link";
 const navLinks = [
   { href: "/learn", label: "学ぶ" },
   { href: "/stats-lab", label: "指標ラボ" },
-  { href: "/drills/batting", label: "技術ドリル" },
+  { href: "/drills", label: "技術ドリル" },
   { href: "/rules", label: "ルール" },
 ] as const;
 

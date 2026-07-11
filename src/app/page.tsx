@@ -15,7 +15,7 @@ const courses = [
     title: "投球・打撃の技術",
     description: "配球、リリース、打球角度。中継を見る目が変わる技術の要点を学びます。",
     meta: "全18レッスン · 初級〜中級",
-    href: "/drills/pitching",
+    href: "/drills",
     color: "blue",
     icon: "ball",
   },

@@ -97,8 +97,8 @@ export default function CategoryPage({
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <nav className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-        <Link href="/" className="hover:text-orange-500 transition-colors">
-          トップ
+        <Link href="/drills" className="hover:text-orange-500 transition-colors">
+          技術ドリル
         </Link>
         <span className="mx-2">&gt;</span>
         <span className="text-foreground font-medium">

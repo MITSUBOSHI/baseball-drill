@@ -8,6 +8,8 @@ test.describe("ページ遷移", () => {
 
   test("カテゴリページに遷移できる", async ({ page }) => {
     await page.goto("/");
+    await page.click('a[href="/drills"]');
+    await expect(page.locator("h1")).toContainText("できることへ");
     await page.click('a[href="/drills/basics"]');
     await expect(page.locator("h1")).toContainText("基本練習");
   });
