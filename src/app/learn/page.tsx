@@ -1,0 +1,19 @@
+import Link from "next/link";
+
+const lessons = [
+  ["01", "打率だけでは見えないこと", "打率の長所と弱点", "5 min", true],
+  ["02", "出塁はアウトを減らすこと", "出塁率（OBP）の考え方", "7 min", false],
+  ["03", "長打の価値を数える", "長打率（SLG）の仕組み", "6 min", false],
+  ["04", "OPSで打者を比べてみる", "2つの力を一つの数字に", "8 min", false],
+] as const;
+
+export default function LearnPage() {
+  return <div className="inner-page learn-page">
+    <section className="page-hero"><span className="kicker">COURSE 01 · SABERMETRICS</span><h1>セイバーメトリクス<br/><em>はじめの一歩。</em></h1><p>「打つ人」から「得点を生み出す人」へ。<br/>数字の見方を少し変えて、選手の価値を考えよう。</p><div className="progress-block"><div><span>コース進捗</span><b>1 / 12</b></div><i><b/></i></div></section>
+    <section className="content-shell lessons-section">
+      <div className="lesson-intro"><span>CHAPTER 1</span><div><h2>打者をどう評価する？</h2><p>まずは、よく知っている「打率」から。<br/>見慣れた数字を疑うところから始めます。</p></div></div>
+      <div className="lesson-list">{lessons.map(([n, title, desc, time, active]) => <article className={active ? "lesson-row active" : "lesson-row"} key={n}><span className="lesson-num">{n}</span><div><h3>{title}</h3><p>{desc}</p></div><small>{time}</small>{active ? <Link href="#quiz" aria-label={`${title}を開始`}>→</Link> : <button aria-label={`${title}は未完了`}>○</button>}</article>)}</div>
+      <div className="mini-quiz" id="quiz"><div><span>QUICK CHECK</span><h2>打率が同じ .280 の二人。<br/>より得点に貢献しそうなのは？</h2></div><div className="player-choice"><button><b>A</b><span>四球が少なく<br/>単打が多い打者</span></button><button><b>B</b><span>四球と長打が<br/>多い打者</span></button></div><p>ヒント：アウトにならないことと、より多くの塁を進むことを考えよう。</p></div>
+    </section>
+  </div>;
+}

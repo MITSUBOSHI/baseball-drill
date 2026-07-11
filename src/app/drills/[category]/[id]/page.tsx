@@ -19,11 +19,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const drill = drills.find((d) => d.id === id);
-  if (!drill) return { title: "ドリルが見つかりません | 野球道場" };
+  if (!drill) return { title: "ドリルが見つかりません | BALLIQ" };
 
   const categoryInfo = CATEGORIES.find((c) => c.id === drill.category);
   return {
-    title: `${drill.title} | ${categoryInfo?.name} | 野球道場`,
+    title: `${drill.title} | ${categoryInfo?.name} | BALLIQ`,
     description: `${drill.title}の練習方法を動画付きで詳しく解説。${drill.duration}・${drill.players}で実践できます。`,
   };
 }

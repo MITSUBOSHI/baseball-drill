@@ -12,10 +12,10 @@ export default function FavoritesPage() {
     .filter((d) => d !== undefined);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <h1 className="text-3xl font-bold mb-6">
+    <div className="utility-page inner-page">
+      <header><span className="kicker">MY PRACTICE LIST</span><h1>
         <FuriganaText text="お気に入りドリル" />
-      </h1>
+      </h1><p>あとで取り組みたいドリルを、ここにまとめておけます。</p></header><main>
 
       {drills.length === 0 ? (
         <p className="text-center text-gray-500 py-12">
@@ -27,7 +27,7 @@ export default function FavoritesPage() {
             <DrillCard key={drill.id} drill={drill} showCategory />
           ))}
         </div>
-      )}
+      )}</main>
     </div>
   );
 }

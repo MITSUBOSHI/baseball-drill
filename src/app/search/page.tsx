@@ -10,10 +10,10 @@ export default function SearchPage() {
   const results = searchDrills(query);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <h1 className="text-3xl font-bold mb-6">
+    <div className="utility-page inner-page">
+      <header><span className="kicker">FIND YOUR PRACTICE</span><h1>
         <FuriganaText text="ドリル検索" />
-      </h1>
+      </h1><p>技術、ポジション、課題から実践ドリルを探せます。</p></header><main>
 
       <div className="mb-8">
         <input
@@ -29,7 +29,7 @@ export default function SearchPage() {
         <p className="text-sm text-gray-500 mb-4">
           {results.length}件のドリルが見つかりました
         </p>
-      )}
+      )}</main>
 
       {query.trim() && results.length === 0 ? (
         <p className="text-center text-gray-500 py-12">

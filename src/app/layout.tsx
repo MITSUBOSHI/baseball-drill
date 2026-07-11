@@ -19,14 +19,14 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mitsuboshi.github.io/baseball-drill"),
-  title: "野球道場 | 動画で学べる野球練習ドリル集",
+  title: "BALLIQ | 野球がわかると、観戦はもっと面白い。",
   description:
-    "基本練習から投球・打撃・守備・走塁・戦略まで、カテゴリ別の練習ドリルを動画付きで紹介。すべてのレベルの選手と指導者のための野球技術向上サイト。",
+    "NPBを題材に、セイバーメトリクス・野球技術・戦術を初級から学べるスマートフォン対応のラーニングアプリ。",
   manifest: "/manifest.json",
   openGraph: {
-    title: "野球道場 | 動画で学べる野球練習ドリル集",
+    title: "BALLIQ | 野球を、もっと深く。もっと面白く。",
     description:
-      "基本練習から投球・打撃・守備・走塁・戦略まで、カテゴリ別の練習ドリルを動画付きで紹介。",
+      "NPBを題材に、データ・技術・戦術をやさしく深く学べるラーニングアプリ。",
     type: "website",
     locale: "ja_JP",
     images: [
@@ -34,15 +34,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "野球道場",
+        alt: "BALLIQ",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "野球道場 | 動画で学べる野球練習ドリル集",
+    title: "BALLIQ | 野球を、もっと深く。もっと面白く。",
     description:
-      "基本練習から投球・打撃・守備・走塁・戦略まで、カテゴリ別の練習ドリルを動画付きで紹介。",
+      "NPBを題材に、データ・技術・戦術をやさしく深く学べるラーニングアプリ。",
     images: ["/og-image.png"],
   },
 };

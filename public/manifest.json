@@ -1,19 +1,19 @@
 {
-  "name": "野球道場 | 動画で学べる野球練習ドリル集",
-  "short_name": "野球道場",
-  "description": "基本練習から投球・打撃・守備・走塁・戦略まで、カテゴリ別の練習ドリルを動画付きで紹介。",
-  "start_url": "/",
+  "name": "BALLIQ | 野球を、もっと深く。もっと面白く。",
+  "short_name": "BALLIQ",
+  "description": "NPBを題材に、セイバーメトリクス・野球技術・戦術を学べるアプリ。",
+  "start_url": "/baseball-drill/",
   "display": "standalone",
-  "background_color": "#f9fafb",
-  "theme_color": "#0f172a",
+  "background_color": "#f6f5ef",
+  "theme_color": "#173f3c",
   "icons": [
     {
-      "src": "/icon.svg",
+      "src": "/baseball-drill/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     },
     {
-      "src": "/favicon.ico",
+      "src": "/baseball-drill/favicon.ico",
       "sizes": "any",
       "type": "image/x-icon"
     }

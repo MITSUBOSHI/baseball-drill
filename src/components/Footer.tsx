@@ -1,18 +1,5 @@
-"use client";
-
-import { FuriganaText } from "./FuriganaText";
+import Link from "next/link";
 
 export function Footer() {
-  return (
-    <footer className="bg-slate-900 text-slate-400 py-8 mt-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-        <p className="font-medium text-white mb-1">
-          <FuriganaText text="野球道場" />
-        </p>
-        <p>
-          <FuriganaText text="すべてのプレーに、確かな技術を。" />
-        </p>
-      </div>
-    </footer>
-  );
+  return <footer className="site-footer"><div><Link href="/" className="footer-brand">BALL<span>IQ</span></Link><p>野球を、もっと深く。もっと面白く。</p></div><nav><Link href="/learn">学ぶ</Link><Link href="/stats-lab">指標ラボ</Link><Link href="/drills/batting">技術ドリル</Link></nav><small>掲載データは学習用の架空データです。</small></footer>;
 }
